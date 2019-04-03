@@ -11,10 +11,14 @@ class Person:
 		self.products = {}
 
 	def add_product():
-		product = str(input("Enter product name: "))
-		cost = float(input("Enter product cost ($): "))
+		try:
+			product = str(input("Enter product name: "))
+			cost = float(input("Enter product cost ($): "))
 
-		products[product] = price
+			products[product] = price
+
+		except:
+			print("Error: Invalid entry format. Make sure cost is a number, e.g. '3.50'.")
 
 	def return_total_cost():
 		pass
@@ -24,17 +28,30 @@ def main():
 	
 	start_menu()
 
+	# User enters people to be considered in the calculation.
 	while making_people == True:
-		generate_person()
-		
-		while adding_items == True:
-		print("For ")
-		
+	
 		try:
-			pass
+			check = str(input("Add a person to the calculation? (y/n)"))
+
+
+			if check == 'y' or 'Y':
+				generate_person()
+
+			else:
+				break
 
 		except:
-			print("Error: Invalid entry format. Make sure cost is a number, e.g. '3.50'.")
+			print("Error: Please enter 'y' or 'n'.")
+
+
+	# User enters items and prices.	
+	while adding_items == True:
+
+		for person in people:
+
+		
+		
 
 	display_totals()
 
